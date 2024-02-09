@@ -75,8 +75,9 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            ChangeSides();
             
+            ChangeSides();
+            DisplayText.text = $"Player {playerSide}'s Turn";
         }
     }
     void GameOver()
@@ -92,6 +93,7 @@ public class GameController : MonoBehaviour
         
 
     }
+
 
 
     void ChangeSides()
