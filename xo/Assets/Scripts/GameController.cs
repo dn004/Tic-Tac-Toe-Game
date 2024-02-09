@@ -6,8 +6,12 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
     public TMP_Text[] buttonList;
+
     public string playerSide;
     public TMP_Text DisplayText;
+
+    public GameObject[] strikeoutList;
+
 
     public Button Reset;
 
@@ -31,41 +35,41 @@ public class GameController : MonoBehaviour
     {
         if(buttonList[0].text == playerSide && buttonList[1].text == playerSide &&buttonList[2].text == playerSide)
         {
-            DisplayText.text = $"Player {playerSide} Wins!";
+            strikeoutList[0].SetActive(true);
             GameOver();
         }
         if(buttonList[3].text == playerSide && buttonList[4].text == playerSide &&buttonList[5].text == playerSide)
         {
-            DisplayText.text = $"Player {playerSide} Wins!"; 
+            strikeoutList[1].SetActive(true);
             GameOver();
         }if(buttonList[6].text == playerSide && buttonList[7].text == playerSide &&buttonList[8].text == playerSide)
         {
-            DisplayText.text = $"Player {playerSide} Wins!"; 
+            strikeoutList[2].SetActive(true);
             GameOver();
         }
         if(buttonList[0].text == playerSide && buttonList[3].text == playerSide &&buttonList[6].text == playerSide)
-        {
-            DisplayText.text = $"Player {playerSide} Wins!"; 
+        { 
+            strikeoutList[3].SetActive(true);
             GameOver();
         }
         if(buttonList[1].text == playerSide && buttonList[4].text == playerSide &&buttonList[7].text == playerSide)
-        {
-            DisplayText.text = $"Player {playerSide} Wins!"; 
+        { 
+            strikeoutList[4].SetActive(true);
             GameOver();
         }
         if(buttonList[2].text == playerSide && buttonList[5].text == playerSide &&buttonList[8].text == playerSide)
-        {
-            DisplayText.text = $"Player {playerSide} Wins!"; 
+        { 
+            strikeoutList[5].SetActive(true);
             GameOver();
         }
         if(buttonList[0].text == playerSide && buttonList[4].text == playerSide &&buttonList[8].text == playerSide)
-        {   
-            DisplayText.text = $"Player {playerSide} Wins!"; 
+        {    
+            strikeoutList[6].SetActive(true);
             GameOver();
         }
         if(buttonList[2].text == playerSide && buttonList[4].text == playerSide &&buttonList[6].text == playerSide)
         {
-            DisplayText.text = $"Player {playerSide} Wins!"; 
+            strikeoutList[7].SetActive(true);
             GameOver();
 
         }
@@ -98,6 +102,11 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
+        for(int i = 0; i < strikeoutList.Length; i++)
+        {
+            strikeoutList[i].SetActive(false);
+        }
+
         DisplayText.text = $"Tic Tac Toe";
 
         for(int i = 0; i < buttonList.Length; i++)
