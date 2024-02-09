@@ -17,6 +17,7 @@ public class GridSpace : MonoBehaviour
     {
         buttonText.text = gameController.GetPlayerSide();
         button.interactable = false;
+        gameController.DisplayText.text = $"Player {gameController.playerSide}'s Turn";
         gameController.EndTurn();
     }
 

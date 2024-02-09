@@ -6,7 +6,7 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
     public TMP_Text[] buttonList;
-    private string playerSide;
+    public string playerSide;
     public TMP_Text DisplayText;
 
     public Button Reset;
@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
         else
         {
             ChangeSides();
-            DisplayText.text = $"Player {playerSide}'s Turn";
+            
         }
     }
     void GameOver()
@@ -83,6 +83,9 @@ public class GameController : MonoBehaviour
             
             buttonList[i].GetComponentInParent<Button>().interactable = false;
         }
+
+        DisplayText.text = $"Player {playerSide} Wins!";
+        
 
     }
 
